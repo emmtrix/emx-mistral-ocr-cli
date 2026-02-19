@@ -7,7 +7,7 @@ CLI tool for converting PDF documents to Markdown or HTML using Mistral OCR.
 - PDF -> Markdown (default) or HTML output
 - Automatic output format detection from `--out` extension (`.html`/`.htm` -> HTML)
 - Optional page selection via `--pages` (`1-12`, `2,5,10-12`, ...)
-- Optional local PDF slicing before upload (`--slice-pdf`)
+- Optional local PDF slicing before upload (`--slice-pdf`) to help with very large PDFs (e.g. >1000 pages)
 - Optional extracted image export
 - HTML mode with embedded HTML tables and built-in CSS styling
 - Local chapter index analysis before OCR (`--analyze-index`)
@@ -117,7 +117,7 @@ python mistral_ocr_cli.py doc.pdf --analyze-index --chapter-index-out index.tsv 
 - `--output-format {markdown,html}`: Output format (default: `markdown`)
 - `--force`: Overwrite existing outputs
 - `--pages "<spec>"`: 1-based page selection, e.g. `1-12`, `2,5,10-12`
-- `--slice-pdf`: Build temporary sliced PDF locally before upload (requires `--pages`)
+- `--slice-pdf`: Build temporary sliced PDF locally before upload (requires `--pages`). Useful when Mistral rejects very large PDFs (e.g. >1000 pages) and you want to process it in chunks.
 - `--images-dir <dir>`: Directory for extracted images (default: `<out_stem>_images`)
 - `--no-images`: Disable image extraction/export
 - `--image-limit <n>`: Maximum number of images to extract
@@ -130,5 +130,5 @@ python mistral_ocr_cli.py doc.pdf --analyze-index --chapter-index-out index.tsv 
 
 - Use `--pages` (plural).  
   `--page` may appear to work in some shells due to argument abbreviation behavior, but `--pages` is the supported option.
-- In HTML mode, OCR tables are requested as HTML and embedded into the final HTML document.
-- For large PDFs, `--slice-pdf` can still take time (PDF parsing/writing), but it reduces upload size and processed content.
+- In HTML mode, OCR tables are requested as HTML and embedded into the final HTML document. HTML is generally more expressive than Markdown for complex layouts (e.g. tables with `colspan`/`rowspan`, which standard Markdown tables do not support).
+- For large PDFs, `--slice-pdf` can still take time (PDF parsing/writing), but it reduces upload size and processed content and can avoid API errors for extremely large documents (e.g. >1000 pages).
