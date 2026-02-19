@@ -1,5 +1,7 @@
 /*.html
 /*.md
+!README.md
+!AGENTS.md
 /*_images
 /*.pdf
 /__pycache__
