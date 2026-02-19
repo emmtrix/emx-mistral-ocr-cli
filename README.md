@@ -29,12 +29,22 @@ pip install -r requirements.txt
 
 Set your API key:
 
+Linux/macOS (bash/zsh):
+
 ```bash
-export MISTRAL_API_KEY="your_key_here"   # Linux/macOS
+export MISTRAL_API_KEY="your_key_here"
 ```
 
+Windows PowerShell / PowerShell:
+
 ```powershell
-$env:MISTRAL_API_KEY="your_key_here"     # PowerShell
+$env:MISTRAL_API_KEY="your_key_here"
+```
+
+Windows cmd.exe:
+
+```cmd
+set MISTRAL_API_KEY=your_key_here
 ```
 
 ## Usage
