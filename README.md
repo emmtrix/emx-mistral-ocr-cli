@@ -132,12 +132,3 @@ python mistral_ocr_cli.py doc.pdf --analyze-index --chapter-index-out index.tsv 
   `--page` may appear to work in some shells due to argument abbreviation behavior, but `--pages` is the supported option.
 - In HTML mode, OCR tables are requested as HTML and embedded into the final HTML document.
 - For large PDFs, `--slice-pdf` can still take time (PDF parsing/writing), but it reduces upload size and processed content.
-
-## Exit Behavior
-
-- Success: exit code `0`
-- Errors: non-zero exit (clear message on stderr)
-
-## License
-
-Internal project / not specified.
