@@ -138,8 +138,6 @@ python mistral_ocr_cli.py doc.pdf --analyze-index --chapter-index-out index.tsv 
 
 ## Notes
 
-- Use `--pages` (plural).  
-  `--page` may appear to work in some shells due to argument abbreviation behavior, but `--pages` is the supported option.
 - In HTML mode, OCR tables are requested as HTML and embedded into the final HTML document. HTML is generally more expressive than Markdown for complex layouts (e.g. tables with `colspan`/`rowspan`, which standard Markdown tables do not support).
 - For large PDFs, `--slice-pdf` can still take time (PDF parsing/writing), but it reduces upload size and processed content and can avoid API errors for extremely large documents (e.g. >1000 pages).
 - `--analyze-index` is useful to discover chapter boundaries and page numbers so you can select specific chapters via `--pages`.
