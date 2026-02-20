@@ -27,27 +27,6 @@ Install via pip:
 pip install emx-mistral-ocr-cli
 ```
 
-Install from source (repo checkout):
-
-```bash
-pip install -r requirements.txt
-```
-
-Optional (editable install with console script):
-
-```bash
-pip install -e .
-```
-
-## Development / Run from Source
-
-If you want to run directly from a git checkout (without installing the package from PyPI), install dependencies and execute the script:
-
-```bash
-pip install -r requirements.txt
-python mistral_ocr_cli.py <input.pdf> [options]
-```
-
 ## Setup
 
 Set your API key:
@@ -164,3 +143,12 @@ emx-mistral-ocr-cli doc.pdf --analyze-index --chapter-index-out index.tsv --forc
 - In HTML mode, OCR tables are requested as HTML and embedded into the final HTML document. HTML is generally more expressive than Markdown for complex layouts (e.g. tables with `colspan`/`rowspan`, which standard Markdown tables do not support).
 - For large PDFs, `--slice-pdf` can still take time (PDF parsing/writing), but it reduces upload size and processed content and can avoid API errors for extremely large documents (e.g. >1000 pages).
 - `--analyze-index` is useful to discover chapter boundaries and page numbers so you can select specific chapters via `--pages`.
+
+## Development / Run from Source
+
+If you want to run directly from a git checkout (without installing the package from PyPI), install dependencies and execute the script:
+
+```bash
+pip install -r requirements.txt
+python mistral_ocr_cli.py <input.pdf> [options]
+```
