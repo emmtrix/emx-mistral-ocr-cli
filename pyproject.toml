@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61", "setuptools_scm[toml]>=7.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "emx-mistral-ocr-cli"
+description = "CLI tool for converting PDF documents to Markdown or HTML using Mistral OCR."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+dynamic = ["version"]
+license = { file = "LICENSE" }
+dependencies = [
+  "markdown",
+  "mistralai",
+  "pypdf",
+]
+
+[project.urls]
+Repository = "https://github.com/emmtrix/emx-mistral-ocr-cli"
+
+[project.scripts]
+emx-mistral-ocr-cli = "mistral_ocr_cli:main"
+
+[tool.setuptools]
+py-modules = ["mistral_ocr_cli"]
+license-files = ["LICENSE"]
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
