@@ -19,10 +19,33 @@ CLI tool for converting PDF documents to Markdown or HTML using Mistral OCR.
 - Python 3.10+
 - A valid Mistral API key in environment variable `MISTRAL_API_KEY`
 
-Install dependencies:
+## Installation
+
+Install via pip:
+
+```bash
+pip install emx-mistral-ocr-cli
+```
+
+Install from source (repo checkout):
 
 ```bash
 pip install -r requirements.txt
+```
+
+Optional (editable install with console script):
+
+```bash
+pip install -e .
+```
+
+## Development / Run from Source
+
+If you want to run directly from a git checkout (without installing the package from PyPI), install dependencies and execute the script:
+
+```bash
+pip install -r requirements.txt
+python mistral_ocr_cli.py <input.pdf> [options]
 ```
 
 ## Setup
@@ -50,13 +73,13 @@ set MISTRAL_API_KEY=your_key_here
 ## Usage
 
 ```bash
-python mistral_ocr_cli.py <input.pdf> [options]
+emx-mistral-ocr-cli <input.pdf> [options]
 ```
 
 Show help:
 
 ```bash
-python mistral_ocr_cli.py -h
+emx-mistral-ocr-cli -h
 ```
 
 ## Common Examples
@@ -64,61 +87,61 @@ python mistral_ocr_cli.py -h
 Default Markdown output:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf
+emx-mistral-ocr-cli doc.pdf
 ```
 
 Write Markdown to a specific file:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --out result.md
+emx-mistral-ocr-cli doc.pdf --out result.md
 ```
 
 HTML output (auto-selected by extension):
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --out result.html
+emx-mistral-ocr-cli doc.pdf --out result.html
 ```
 
 Explicit HTML output:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --output-format html --out result.html
+emx-mistral-ocr-cli doc.pdf --output-format html --out result.html
 ```
 
 Process only selected pages:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --pages "1-20"
+emx-mistral-ocr-cli doc.pdf --pages "1-20"
 ```
 
 Slice selected pages locally before upload:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --pages "1150-1200" --slice-pdf --out result.html --force
+emx-mistral-ocr-cli doc.pdf --pages "1150-1200" --slice-pdf --out result.html --force
 ```
 
 Disable images entirely:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --no-images
+emx-mistral-ocr-cli doc.pdf --no-images
 ```
 
 Export images to custom directory:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --images-dir extracted_images
+emx-mistral-ocr-cli doc.pdf --images-dir extracted_images
 ```
 
 Analyze chapter index locally (no OCR call):
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --analyze-index
+emx-mistral-ocr-cli doc.pdf --analyze-index
 ```
 
 Analyze chapter index and write it to file:
 
 ```bash
-python mistral_ocr_cli.py doc.pdf --analyze-index --chapter-index-out index.tsv --force
+emx-mistral-ocr-cli doc.pdf --analyze-index --chapter-index-out index.tsv --force
 ```
 
 ## Options
